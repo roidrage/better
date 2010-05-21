@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
-  s.name = "better"
-  s.version = "1.0.0"
+  s.name = "peritor-better"
+  s.version = "1.0.1"
   s.summary = "Collection of better replacements for Ruby standard libraries"
   s.email = "hongli@phusion.nl"
   s.homepage = "http://better.rubyforge.org/"

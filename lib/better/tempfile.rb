@@ -150,7 +150,11 @@ class Tempfile < DelegateClass(File)
         # the parent process.
         if original_pid == $$
           path, tmpfile, live_tempfiles = *info
-          tmpfile.close if tmpfile
+          begin
+            tmpfile.close if tmpfile
+          rescue IOError
+            raise if not $!.message.match(/^closed stream$/)
+          end
           File.unlink(path) if path && File.exist?(path)
           live_tempfiles.delete(path) if live_tempfiles
         end
